@@ -20,6 +20,7 @@ import           Data.List.NonEmpty as NE (NonEmpty(..))
 import qualified Data.List.NonEmpty as NE
 import qualified Data.Map as M
 import Data.String.Lines
+import Data.Void
 
 import GHC.Generics
 import GHC.Generics.Lens
@@ -60,6 +61,9 @@ instance (PrettyPrintable a,PrettyPrintable b)
 
 instance PrettyPrintable Char where
     pretty = pure
+
+instance PrettyPrintable Void where
+    pretty = absurd
 
 instance PrettyPrintable () where
     pretty = show
